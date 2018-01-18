@@ -1,0 +1,63 @@
+
+Issue 
+
+bryanleekw@nb1:/proj/kubernetes-ci-cd$ kubectl describe pods puzzle-85f88bffcf-p6jfg
+Name:           puzzle-85f88bffcf-p6jfg
+Namespace:      default
+Node:           minikube/192.168.99.100
+Start Time:     Thu, 18 Jan 2018 21:46:56 +0800
+Labels:         app=puzzle
+                pod-template-hash=4194469979
+                tier=puzzle
+Annotations:    kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"puzzle-85f88bffcf","uid":"0c562b6a-fc56-11e7-b1ed-080027302ed5",...
+Status:         Running
+IP:             172.17.0.25
+Controlled By:  ReplicaSet/puzzle-85f88bffcf
+Containers:
+  puzzle:
+    Container ID:   docker://51a8da283501912ed149ad373f53a774cb70f71c1f7ba2199eefc12521e36374
+    Image:          127.0.0.1:30400/puzzle:8a7b5cb
+    Image ID:       docker-pullable://127.0.0.1:30400/puzzle@sha256:118e62bb5f0177f9e2972be1a58974a4625592065c0521d1917dd15aa63ba600
+    Port:           3000/TCP
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    137
+      Started:      Thu, 18 Jan 2018 22:17:02 +0800
+      Finished:     Thu, 18 Jan 2018 22:19:43 +0800
+    Ready:          False
+    Restart Count:  7
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4f4ds (ro)
+Conditions:
+  Type           Status
+  Initialized    True 
+  Ready          False 
+  PodScheduled   True 
+Volumes:
+  default-token-4f4ds:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-4f4ds
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     <none>
+Events:
+  Type     Reason                 Age                 From               Message
+  ----     ------                 ----                ----               -------
+  Normal   Scheduled              35m                 default-scheduler  Successfully assigned puzzle-85f88bffcf-p6jfg to minikube
+  Normal   SuccessfulMountVolume  35m                 kubelet, minikube  MountVolume.SetUp succeeded for volume "default-token-4f4ds"
+  Warning  FailedPreStopHook      33m                 kubelet, minikube  
+  Warning  BackOff                30m (x2 over 30m)   kubelet, minikube  Back-off restarting failed container
+  Normal   Pulled                 29m (x3 over 34m)   kubelet, minikube  Successfully pulled image "127.0.0.1:30400/puzzle:8a7b5cb"
+  Normal   Started                29m (x3 over 34m)   kubelet, minikube  Started container
+  Normal   Created                29m (x3 over 34m)   kubelet, minikube  Created container
+  Warning  FailedPostStartHook    24m (x4 over 33m)   kubelet, minikube  
+  Normal   Killing                20m (x5 over 33m)   kubelet, minikube  Killing container with id docker://puzzle:FailedPostStartHook
+  Warning  FailedSync             10m (x40 over 33m)  kubelet, minikube  Error syncing pod
+  Normal   Pulling                5m (x8 over 35m)    kubelet, minikube  pulling image "127.0.0.1:30400/puzzle:8a7b5cb"
+bryanleekw@nb1:/proj/kubernetes-ci-cd$ 
+
+
